@@ -1,3 +1,13 @@
+// the basic idea:
+// create all potential subsets
+  // one side to another
+    // original array: (i.e. [1, 2, 3, 4], [1, 2, 3], [1, 2], [1])
+    // reversed array: (i.e. [4, 3, 2, 1], [4, 3, 2], [4, 3], [4])
+  // outside to inside: (i.e. [2, 3])
+
+// get sum of subset
+// set target to sum value if target is smaller
+
 function largestSubarraySum(array){
 
   let target = 0;
