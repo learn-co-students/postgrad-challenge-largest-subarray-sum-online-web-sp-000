@@ -1,20 +1,18 @@
-let array = [1, -1, 5, 3, -7, 4, 5, 6, -100, 4]
-
+// Kadene's algorithm - the maximum subarray at each element is either the current element itself, or the current element 
+// plus the maximum subarray ending at the previous element.
 
 function largestSubarraySum(array){
 
-    let counter = 0;
+    let currentMax = array[0];
+    let globalMax = array[0];
+        
+        for (let i = 1; i < array.length; i++) {
 
-    let result;
+            currentMax = Math.max(array[i], array[i] + currentMax)
 
-    for (let x = 0; x < array.length; x++) {
-        for (let i = x; i < array.length; i++) {
-            let sum = array.slice(0,i+1).reduce((a, b) => a+b);
-
-            if (result === undefined || sum > counter) {result = array.slice(0,i+1); counter = sum}
+            if (currentMax > globalMax) {globalMax = currentMax}
+            
         }
-    }   
-    return counter;
+    
+    return globalMax;
 }
-
-console.log(largestSubarraySum(array));
